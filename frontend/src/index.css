@@ -8,3 +8,11 @@
 body{
     background-color: #333333;
 }
+
+.navColor{
+    background-color: hsl(0, 0%, 3%,20%);
+}
+
+.navColorDrop{
+    background-color: hsl(0, 0%, 3%,80%);
+}
