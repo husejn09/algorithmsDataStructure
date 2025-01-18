@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header.jsx'
 import ContentAlgo from './ContentAlgo.jsx';
 import ContentDs from './ContentDs.jsx';
-import TheoryAlgorithm from './TheoryAlgorithm.jsx';
-import Algorithms from './Algorithms.jsx';
+import Algorithms from './components/AlgorithmComponents/Algorithms.jsx';
 
 function App () {
 const algoAbout = "An algorithm is a step-by-step procedure or set of instructions designed to solve a specific problem or perform a particular task.";

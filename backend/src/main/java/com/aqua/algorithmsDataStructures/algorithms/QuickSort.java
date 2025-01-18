@@ -3,13 +3,18 @@ package com.aqua.algorithmsDataStructures.algorithms;
 public class QuickSort {
     //how quickSort works
 
-    public void quickSort(int[] array, int start, int end){
+    public int[] quickSort(int[] array, int start, int end){
 
-        if(end <= start) return; // base case
+        if(end <= start)
+            return new int[]{-1}; // base case
+
+
 
         int pivot = partiton(array, start, end);
         quickSort(array, start, pivot-1);
         quickSort(array, pivot+1, end);
+
+        return array;
     }
 
     private int partiton(int[] array, int start, int end){

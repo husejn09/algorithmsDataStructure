@@ -2,10 +2,13 @@ package com.aqua.algorithmsDataStructures.algorithms;
 
 public class MergeSort {
     //how mergeSort works
-    public void mergeSort(int [] array){
+    public int[] mergeSort(int [] array){
 
         int arrLength = array.length;
-        if(arrLength <= 1) return;
+
+        if(arrLength <= 1){
+            return new int[]{-1};
+        }
 
         int middle = arrLength / 2;
         int[] leftArray = new int[middle];
@@ -24,6 +27,8 @@ public class MergeSort {
         mergeSort(leftArray);
         mergeSort(rightArray);
         merge(leftArray, rightArray, array);
+
+        return array;
     }
 
 

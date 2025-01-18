@@ -21,6 +21,5 @@ public class DepthFirstSearch {
                 depthFS(i, visited);
             }
         }
-
     }
 }
