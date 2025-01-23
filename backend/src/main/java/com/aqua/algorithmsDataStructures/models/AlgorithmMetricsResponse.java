@@ -2,8 +2,8 @@ package com.aqua.algorithmsDataStructures.models;
 
 public class AlgorithmMetricsResponse  {
     private int valueFromSearch;
-    private long timeTaken;
-    private long memoryUsage;
+    private double timeTaken;
+    private double memoryUsage;
     private int[] arrayFromSort;
 
     public int[] getArrayFromSort(){
@@ -22,19 +22,19 @@ public class AlgorithmMetricsResponse  {
         this.valueFromSearch = valueFromSearch;
     }
 
-    public long getTimeTaken() {
+    public double getTimeTaken() {
         return timeTaken;
     }
 
-    public void setTimeTaken(long timeTaken) {
+    public void setTimeTaken(double timeTaken) {
         this.timeTaken = timeTaken;
     }
 
-    public long getMemoryUsage() {
+    public double getMemoryUsage() {
         return memoryUsage;
     }
 
-    public void setMemoryUsage(long memoryUsage) {
+    public void setMemoryUsage(double memoryUsage) {
         this.memoryUsage = memoryUsage;
     }
 }

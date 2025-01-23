@@ -29,8 +29,8 @@ public AlgorithmMetricsResponse linearSearchMetrics(int[] array, int value) {
     long memoryAfter = runtime.totalMemory() - runtime.freeMemory();
 
     // calculated time and memory
-    long timeTaken = (endTime - startTime);
-    long memoryTaken = (memoryAfter - memoryBefore) ; // (in MB if divided by 1024*1024)
+    double timeTaken = (double)(endTime - startTime)  / 1000000.0; // divide with 1 000 000 for ms
+    double memoryTaken = (double) (memoryAfter - memoryBefore) / (1024.0 * 1024.0); // divide with 1024*1024 for MB
 
     AlgorithmMetricsResponse response = new AlgorithmMetricsResponse();
     response.setValueFromSearch(valueFromSearch);

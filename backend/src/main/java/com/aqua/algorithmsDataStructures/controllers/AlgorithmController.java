@@ -19,6 +19,7 @@ public class AlgorithmController {
     private final InsertionSortService insertionSortService;
     private final MergeSortService mergeSortService;
     private final QuickSortService quickSortService;
+    private final InterpolationSearchService interpolationSearchService;
     private final DepthFirstSearchService depthFirstSearchService;
     private final BreadthFirstSearchService breadthFirstSearchService;
 
@@ -26,7 +27,8 @@ public class AlgorithmController {
                                BubbleSortService bubbleSortService, SelectionSortService selectionSortService,
                                InsertionSortService insertionSortService, MergeSortService mergeSortService,
                                QuickSortService quickSortService, DepthFirstSearchService depthFirstSearchService,
-                               BreadthFirstSearchService breadthFirstSearchService) {
+                               BreadthFirstSearchService breadthFirstSearchService, InterpolationSearchService interpolationSearchService
+                                ) {
         this.linearSearchService = linearSearchService;
         this.binarySearchService = binarySearchService;
         this.bubbleSortService = bubbleSortService;
@@ -36,6 +38,7 @@ public class AlgorithmController {
         this.quickSortService = quickSortService;
         this.depthFirstSearchService = depthFirstSearchService;
         this.breadthFirstSearchService = breadthFirstSearchService;
+        this.interpolationSearchService = interpolationSearchService;
     }
 
 // generating random array
@@ -60,14 +63,14 @@ public class AlgorithmController {
     }
 
 // get and post api for linear search
-    @GetMapping("/linearSearch")
+    @GetMapping("/LinearSearch")
     public int linearSearch(){
         int [] array = {9,1,8,2,7,3,6,4,5};
         int value = 4;
         return linearSearchService.linearSearchMetrics(array, value).getValueFromSearch();
     }
 
-    @PostMapping("/linearSearch")
+    @PostMapping("/LinearSearch")
     public AlgorithmMetricsResponse getLinearSearchMetrics(@Validated @RequestBody UserInputsDTO userInputsDTO){
 
         int[] array = generateArray(userInputsDTO.getSize(), userInputsDTO.getValue());
@@ -75,79 +78,94 @@ public class AlgorithmController {
     }
 
 // get and post api for binary search
-    @GetMapping("/binarySearch")
+    @GetMapping("/BinarySearch")
     public int binarySearch(){
         int [] array = {1,2,3,4,5,6,7,8,9,10};
         int target = 7;
         return binarySearchService.binarySearchMetrics(array, target).getValueFromSearch();
     }
-    @PostMapping("binarySearch")
+    @PostMapping("/BinarySearch")
     public AlgorithmMetricsResponse getBinarySearchMetrics(@Validated @RequestBody UserInputsDTO userInputsDTO){
         int[] array = generateArray(userInputsDTO.getSize(), userInputsDTO.getValue());
+        quickSortService.quickSortMetrics(array, 0, array.length-1);
         return binarySearchService.binarySearchMetrics(array, userInputsDTO.getValue());
     }
 
 // get and post api for bubble sort
-    @GetMapping("/bubbleSort")
+    @GetMapping("/BubbleSort")
     public int[] bubbleSort(){
         int [] array = {9,1,8,2,7,3,6,4,5};
         return bubbleSortService.bubbleSortMetrics(array).getArrayFromSort();
     }
-    @PostMapping("/bubbleSort")
+    @PostMapping("/BubbleSort")
     public AlgorithmMetricsResponse getBubbleSortMetrics(@Validated @RequestBody UserInputsSortDTO userInputsSortDTO){
         int [] array = generateArraySort(userInputsSortDTO.getSize());
         return bubbleSortService.bubbleSortMetrics(array);
     }
 
 // get and post api for selection sort
-    @GetMapping("/selectionSort")
+    @GetMapping("/SelectionSort")
     public int[] selectionSort(){
         int [] array = {8,9,7,1,3,2,5,4,6};
         return selectionSortService.selectionSortMetrics(array).getArrayFromSort();
     }
 
-    @PostMapping("selectionSort")
+    @PostMapping("/SelectionSort")
     public AlgorithmMetricsResponse getSelectionSortMetrics(@Validated @RequestBody UserInputsSortDTO userInputsSortDTO){
         int [] array = generateArraySort(userInputsSortDTO.getSize());
         return selectionSortService.selectionSortMetrics(array);
     }
 
     // get and post api for insertion sort
-    @GetMapping("/insertionSort")
+    @GetMapping("/InsertionSort")
     public int[] insertionSort(){
         int [] array = {9,1,8,2,7,3,6,5,4};
         return insertionSortService.insertionSortMetrics(array).getArrayFromSort();
     }
-    @PostMapping("insertionSort")
+    @PostMapping("/InsertionSort")
     public AlgorithmMetricsResponse getInsertionSortMetrics(@Validated @RequestBody UserInputsSortDTO userInputsSortDTO){
         int[] array = generateArraySort(userInputsSortDTO.getSize());
         return insertionSortService.insertionSortMetrics(array);
     }
 
     //get and post api for merge sort
-    @GetMapping("/mergeSort")
+    @GetMapping("/MergeSort")
     public int[] mergeSort(){
         int [] array = {3,7,8,5,4,2,6,1};
         return mergeSortService.mergeSortMetrics(array).getArrayFromSort();
     }
-    @PostMapping("mergeSort")
+    @PostMapping("/MergeSort")
     public AlgorithmMetricsResponse getMergeSortMetrics(@Validated @RequestBody UserInputsSortDTO userInputsSortDTO){
         int [] array = generateArraySort(userInputsSortDTO.getSize());
         return mergeSortService.mergeSortMetrics(array);
     }
 
-    @GetMapping("/quickSort")
+    @GetMapping("/QuickSort")
     public int[] quickSort(){
         int [] array = {8,2,4,7,1,3,9,6,5};
         return quickSortService.quickSortMetrics(array, 0, array.length-1).getArrayFromSort();
     }
-    @PostMapping("/quickSort")
+    @PostMapping("/QuickSort")
     public AlgorithmMetricsResponse getQuickSortMetrics(@Validated @RequestBody UserInputsSortDTO userInputsSortDTO){
         int [] array = generateArraySort(userInputsSortDTO.getSize());
         return quickSortService.quickSortMetrics(array, 0, array.length-1);
     }
 
-    @GetMapping("/depthFirstSearch")
+    // get and post api for interpolation search
+    @GetMapping("/InterpolationSearch")
+    public int interpolationSearch(){
+        int [] array = {1,2,3,4,5,6,7,8,9,10};
+        int target = 7;
+        return interpolationSearchService.interpolationSearchMetrics(array, target).getValueFromSearch();
+    }
+    @PostMapping("/InterpolationSearch")
+    public AlgorithmMetricsResponse getInterpolationSearch(@Validated @RequestBody UserInputsDTO userInputsDTO){
+        int[] array = generateArray(userInputsDTO.getSize(), userInputsDTO.getValue());
+        quickSortService.quickSortMetrics(array, 0, array.length-1);
+        return interpolationSearchService.interpolationSearchMetrics(array, userInputsDTO.getValue());
+    }
+
+    @GetMapping("/DepthFirstSearch")
     public void depthFirstSearch(){
         /*
         Graph graph = new Graph(5);
@@ -168,7 +186,7 @@ public class AlgorithmController {
         // need to implement class for creating matrix and their methods to use this one
     }
 
-    @GetMapping("/breadthFirstSearch")
+    @GetMapping("/BreadthFirstSearch")
     public void breadthFirstSearch(){
        
 
