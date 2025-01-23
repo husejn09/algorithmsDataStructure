@@ -1,21 +1,23 @@
 import PropTypes from 'prop-types';
 import algoImage from './assets/algoLogo.png'
 import LearnButton from './LearnButton';
-import notationLogo from './assets/notationLogo.png'
+import { useEffect } from 'react';
 
-function ContentAlgo(props){
+function ContentAlgo(){
+    const algoAbout = "An algorithm is a step-by-step procedure or set of instructions designed to solve a specific problem or perform a particular task.";
+    const title = "Algorithms";
+
     return(
         <>
-        <div className="flex mt-10 place-content-center">
-            <img alt="algoLogo" src={algoImage} className="w-36 h-36 ml-3"></img>
+        <div className="flex flex-row-reverse mt-14 place-content-center w-96 mx-auto">
+            <img alt="algoLogo" src={algoImage} className="w-40 h-40 mr-4"></img>
             <div className="flex flex-col pl-3 pr-4">
-                <h1 className="text-white text-3xl">{props.title}</h1>
-                <p className="text-white text-sm mt-3" >{props.paragraph}</p>
+                <h1 className="text-white text-end text-2xl">{title}</h1>
+                <p className="text-white text-sm mt-4" >{algoAbout}</p>
             </div>
             
         </div>
-        <LearnButton />
-        <img alt="Notation logo" src={notationLogo} className="w-80 mx-auto -mt-6 -mb-10 opacity-50"></img>
+        <LearnButton targetView="algorithms"/>
         </>
     );
 }

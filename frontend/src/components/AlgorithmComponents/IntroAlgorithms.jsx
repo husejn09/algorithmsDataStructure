@@ -2,9 +2,11 @@ import React, {useState} from "react";
 import TheoryAlgorithm from './TheoryAlgorithm';
 import algoImage from '../../assets/algoLogo.png';
 import AdvancedAlgorithms from "./AdvancedAlgorithms";
+import { useView } from "../../ViewContext";
 
 function IntroAlgorithms(){
 
+    const {setView} = useView();
     const [theory, setTheory] = useState(false);
     const [advancedAlgo, setAdvancedAlgo] = useState(false);
 
@@ -21,14 +23,18 @@ function IntroAlgorithms(){
 
             {!theory && !advancedAlgo && (
                 <>
-                    <p className="text-white text-center w-96 mx-auto">{about}</p>
+                    <p className="text-white text-center w-96 mx-auto ">{about}</p>
 
                     <div className="mt-12">
                         <h1 className="text-white text-center text-2xl">Choose the topic about Algorithms</h1>
                         <div className="mt-10 text-white mx-12 text-xl space-y-1 flex flex-col place-items-center">
                             <button className="block navColorDrop w-40 text-center rounded-xl p-2" onClick={() => setTheory(true)}>Theory</button>
-                            <button className="block navColorDrop w-40 text-center rounded-xl p-2" onClick={() => setAdvancedAlgo(true)}>Advanced Topic</button>
+                            <button className="block navColorDrop w-40 text-center rounded-xl p-2" onClick={() => setAdvancedAlgo(true)}>Intermediate</button>
+                            <button className="block bg-gray-500 w-40 text-center rounded-xl p-2 text-opacity-45 cursor-default">Expert</button>
                         </div>
+                    </div>
+                    <div className="flex">
+                        <button className=" navColorDrop w-40 text-center rounded-xl p-3 text-white mx-auto mt-24" onClick={() => setView("main")}>Home</button>
                     </div>
                 </>
             )}
@@ -48,8 +54,8 @@ function IntroAlgorithms(){
             
             {advancedAlgo && (
                 <>
-                    <AdvancedAlgorithms />
-                    <button className="block navColorDrop w-40 text-center rounded-xl p-2 text-white mx-auto my-10" onClick={() => setAdvancedAlgo(false)}>Go back</button>
+                    <AdvancedAlgorithms setAdvancedAlgo={setAdvancedAlgo}/>
+                    
                 </>
             )}
         </>

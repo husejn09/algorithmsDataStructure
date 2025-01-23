@@ -4,14 +4,15 @@ import ProsConsAlgorithms from "./ProsConsAlgorithms";
 import TimeSpaceComplexity from "./TimeSpaceComplexity";
 import Visualization from "./visualization";
 
-function AlgorithmsDetailed({name, about, pros, cons, timeComplexity, spaceComplexity, code}){
+function AlgorithmsDetailed({name, about, pros, cons, timeComplexity, spaceComplexity, code, isSearch}){
     
     return (
         <>
             <ProsConsAlgorithms heading={name} text={about} pros={pros} cons={cons}/>
             <TimeSpaceComplexity timeComplexity={timeComplexity} spaceComplexity={spaceComplexity} />
             <CodeSnippetAlgorithm code={code} />
-            <APIAlgorithm />
+            <APIAlgorithm apiEndpoint={name} isSearch={isSearch}/>
+            
         </>
     );
 }

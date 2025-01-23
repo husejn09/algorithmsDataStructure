@@ -20,7 +20,7 @@ function TheoryAlgorithm(){
     return(
         <>
 
-            <div className="place-content-center w-10/12 mx-auto">
+            <div className="place-content-center w-10/12 mx-auto text-sm text-justify">
                 <h2 className="text-white text-2xl italic mb-4">Definition</h2>
                 <p className="text-white tracking-wide">{definition}</p>
                 

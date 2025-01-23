@@ -14,7 +14,7 @@ import MemoryLinear from '../../assets/MemoryLinear.png'
 import React, {useState} from 'react'
 import AlgorithmsDetailed from "./AlgorithmsDetailed";
 
-function AdvancedAlgorithms(){
+function AdvancedAlgorithms({setAdvancedAlgo}){
     
     const algorithmsData = [
     {
@@ -58,7 +58,8 @@ function AdvancedAlgorithms(){
             array[end] = temp;
 
             return i;
-        }`
+        }`,
+        isSearch: false
     },
     {
         id: 2,
@@ -127,7 +128,8 @@ function AdvancedAlgorithms(){
             i++;
             r++;
         }
-    }`
+    }`,
+        isSearch: false
     },
     {
         id: 3,
@@ -175,7 +177,8 @@ function AdvancedAlgorithms(){
                 }
             }
             return array;
-        }`
+        }`,
+        isSearch: false
     },
     {
         id: 5,
@@ -200,7 +203,8 @@ function AdvancedAlgorithms(){
             array[j+1] = temp;
             }
             return array;
-        }`
+        }`,
+        isSearch: false
     },
     {
         id: 6,
@@ -229,7 +233,8 @@ function AdvancedAlgorithms(){
                     return middle;
             }
             return -1;
-        }`
+        }`,
+        isSearch: true
     },
     {
         id: 7,
@@ -242,7 +247,8 @@ function AdvancedAlgorithms(){
         timeComplexity: TimeInterpolationSearch,
         spaceComplexity: MemoryInsertionSelectionBubbleInterpolation,
         code:
-        `coming`
+        `coming`,
+        isSearch: true
     },
     {
         id: 8,
@@ -271,7 +277,8 @@ function AdvancedAlgorithms(){
                     }
                 }
             }
-        }`
+        }`,
+        isSearch: true
     },
     {
         id: 9,
@@ -302,7 +309,8 @@ function AdvancedAlgorithms(){
                     depthFS(i, visited);
                 }
             }
-        }`
+        }`,
+        isSearch: true
     }];
 
 
@@ -313,13 +321,12 @@ function AdvancedAlgorithms(){
         setSelectedButton(id);
     }
 
-    //handling content, hide info when specific algo is clicked
     const [content, setContent] = useState(false);
     const toggleContent = () => {
         setContent(true);
         
     }
-    const [detailedContent, setDetailedContent] = useState(false);
+
     
 
 
@@ -329,7 +336,8 @@ function AdvancedAlgorithms(){
         {!content &&(
             <>
             <div className="text-white mb-10 w-96 mx-auto">
-                        <p>Hello again! Here is the more advanced stuff. Choose between given algorithms to see info about them, and see how a specific algorithm works.</p>
+                        <p>Hello again! Here is the more advanced stuff. Choose between given algorithms to see info about them, 
+                            and to see how a specific algorithm works.</p>
                     </div>
 
             <div className="flex flex-wrap gap-2 mx-auto place-content-center px-1 w-96">
@@ -342,11 +350,17 @@ function AdvancedAlgorithms(){
                     />
                 ))}
             </div>
+
+            <div className="flex justify-center">
+                    <button className=" navColorDrop w-40 text-center rounded-xl p-2 text-white mx-auto my-10" onClick={() => setAdvancedAlgo(false)}>Go back</button>
+            </div>
         </>)}
 
-               
+              
                 <div>
+                    
                     {selectedButton && content && (
+                        <>
                     <AlgorithmsDetailed
                         name={selectedAlgoData.name}
                         about={selectedAlgoData.about}
@@ -355,9 +369,15 @@ function AdvancedAlgorithms(){
                         timeComplexity={selectedAlgoData.timeComplexity}
                         spaceComplexity={selectedAlgoData.spaceComplexity}
                         code={selectedAlgoData.code}
+                        isSearch={selectedAlgoData.isSearch}
                     />
+                    <div className="flex justify-center ">
+                    <button className=" navColorDrop w-40 text-center rounded-xl p-2 text-white mx-auto my-10" onClick={() => setAdvancedAlgo(false)}>Main menu</button>
+                        <button className=" navColorDrop w-40 text-center rounded-xl p-2 text-white mx-auto my-10" onClick={() => setContent(false)}>Back</button>
+                    </div>
+                    </>
                     )}
-                    <button className="flex navColorDrop w-40 rounded-xl p-2 text-white mx-auto place-content-center my-10">Back</button>
+                    
                 </div>
 
         </>

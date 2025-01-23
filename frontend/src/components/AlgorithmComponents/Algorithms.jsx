@@ -6,7 +6,7 @@ function Algorithms(){
     
     return (
         <>
-            <IntroAlgorithms />
+            <IntroAlgorithms/>
         </>
     );
 }
