@@ -1,19 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import Header from './Header.jsx'
 import ContentAlgo from './ContentAlgo.jsx';
 import ContentDs from './ContentDs.jsx';
 import Algorithms from './components/AlgorithmComponents/Algorithms.jsx';
+import DataStructures from './components/DataStructureComponents/DataStructures.jsx';
+
+import { useView } from './ViewContext.jsx';
 
 function App () {
-const algoAbout = "An algorithm is a step-by-step procedure or set of instructions designed to solve a specific problem or perform a particular task.";
-const dsAbout = "A data structure is a specific way of organizing, managing, and storing data in a computer so that it can be used efficiently."
+
+    const {view} = useView();
+    console.log("Current view:", view);
+    
     return (
         <>
             <Header />
-            { /* <ContentAlgo paragraph={algoAbout} title="Algorithms"/>
-            <ContentDs paragraph={dsAbout} title="Data Structures"/> */}
+            {view === "main" && (
+                <>
+                    <ContentDs />
+                    <ContentAlgo />
+                </>
+            )}
 
-            <Algorithms/>
+            
+            {view === "algorithms" && <Algorithms key="algo" />}
+            {view === "dataStructure" && <DataStructures key="ds"/>}    
         </>
     );
 };
