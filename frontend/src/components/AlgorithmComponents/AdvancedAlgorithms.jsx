@@ -2,14 +2,12 @@ import SpecificAlgoButton from "./SpecificAlgoButton";
 import TimeBinarySearch from '../../assets/TimeBinarySearch.png'
 import TimeInterpolationSearch from '../../assets/TimeInterpolationSearch.png'
 import TimeQuickMergeHeap from '../../assets/TimeQuickMergeHeap.png'
-import TimeLinearSearch from '../../assets/TimeLinearSearch.png'
 import TimeBfsDfs from '../../assets/TimeBfsDfs.png'
 import TimeInsertionSelectionBubble from '../../assets/TimeInsertionSelectionBubble.png'
 
 import MemoryBinaryQuickMerge from '../../assets/MemoryBinaryQuickMerge.png'
 import MemoryInsertionSelectionBubbleInterpolation from '../../assets/MemoryBinaryQuickMerge.png'
 import MemoryBfsDfs from '../../assets/MemoryBfsDfs.png'
-import MemoryLinear from '../../assets/MemoryLinear.png'
 
 import React, {useState} from 'react'
 import AlgorithmsDetailed from "./AlgorithmsDetailed";

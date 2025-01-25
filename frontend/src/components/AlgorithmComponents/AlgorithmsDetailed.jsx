@@ -2,7 +2,6 @@ import APIAlgorithm from "./APIAlgorithm";
 import CodeSnippetAlgorithm from "./CodeSnippetAlgorithm";
 import ProsConsAlgorithms from "./ProsConsAlgorithms";
 import TimeSpaceComplexity from "./TimeSpaceComplexity";
-import Visualization from "./visualization";
 
 function AlgorithmsDetailed({name, about, pros, cons, timeComplexity, spaceComplexity, code, isSearch}){
     

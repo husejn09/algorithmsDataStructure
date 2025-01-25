@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
+
 import dSImage from './assets/dSLogo.png'
 import LearnButton from './LearnButton';
 import notationLogo from './assets/notationLogo.png'
-import { useEffect } from 'react';
+
 
 function ContentDs(){
     const dsAbout = "A data structure is a specific way of organizing, managing, and storing data in a computer so that it can be used efficiently.";

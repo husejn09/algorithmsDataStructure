@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
+
 import algoImage from './assets/algoLogo.png'
 import LearnButton from './LearnButton';
-import { useEffect } from 'react';
+
 
 function ContentAlgo(){
     const algoAbout = "An algorithm is a step-by-step procedure or set of instructions designed to solve a specific problem or perform a particular task.";
