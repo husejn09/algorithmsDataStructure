@@ -247,7 +247,24 @@ function AdvancedAlgorithms({setAdvancedAlgo}){
         timeComplexity: TimeInterpolationSearch,
         spaceComplexity: MemoryInsertionSelectionBubbleInterpolation,
         code:
-        `coming`,
+        `public int interpolationSearch(int [] array, int target){
+        int high = array.length - 1;
+        int low = 0;
+
+        while(target >= array[low] && target<=array[high] && low <= high){
+            int probe = low + (high-low) * (target - array[low]) / (array[high] - array[low]);
+
+            if(array[probe] == target){
+                return probe;
+            } else if (array[probe] < target) {
+                low = probe + 1;
+            }
+            else {
+                high = probe - 1;
+            }
+        }
+        return -1;
+    }`,
         isSearch: true
     },
     {
@@ -335,12 +352,12 @@ function AdvancedAlgorithms({setAdvancedAlgo}){
         <>
         {!content &&(
             <>
-            <div className="text-white mb-10 w-96 mx-auto">
+            <div className="text-white text-center mx-auto sm:text-base lg:text-lg xs:w-[340px] sm:w-[550px] md:w-[600px] lg:w-[620px] xl:w-[650px] mb-12">
                         <p>Hello again! Here is the more advanced stuff. Choose between given algorithms to see info about them, 
                             and to see how a specific algorithm works.</p>
                     </div>
 
-            <div className="flex flex-wrap gap-2 mx-auto place-content-center px-1 w-96">
+            <div className="flex flex-wrap gap-2 mx-auto place-content-center xs:w-[350px] sm:w-[450px] md:w-[600px]">
                 {algorithmsData.map((algo) =>(
                     <SpecificAlgoButton 
                         key={algo.id}
@@ -352,7 +369,7 @@ function AdvancedAlgorithms({setAdvancedAlgo}){
             </div>
 
             <div className="flex justify-center">
-                    <button className=" navColorDrop w-40 text-center rounded-xl p-2 text-white mx-auto my-10" onClick={() => setAdvancedAlgo(false)}>Go back</button>
+                    <button className=" navColorDrop w-40 text-center rounded-xl p-2 text-white mx-auto my-10 xs:w-32 xs:text-sm sm:w-[150px] sm:text-base xl:w-[180px]" onClick={() => setAdvancedAlgo(false)}>Go back</button>
             </div>
         </>)}
 
@@ -371,9 +388,9 @@ function AdvancedAlgorithms({setAdvancedAlgo}){
                         code={selectedAlgoData.code}
                         isSearch={selectedAlgoData.isSearch}
                     />
-                    <div className="flex justify-center ">
-                    <button className=" navColorDrop w-40 text-center rounded-xl p-2 text-white mx-auto my-10" onClick={() => setAdvancedAlgo(false)}>Main menu</button>
-                        <button className=" navColorDrop w-40 text-center rounded-xl p-2 text-white mx-auto my-10" onClick={() => setContent(false)}>Back</button>
+                    <div className="flex place-content-center lg:gap-32 xs:gap-6 sm:gap-16">
+                    <button className="navColorDrop xm:w-36 sm:text-base text-center rounded-xl p-2 text-white my-10 xs:text-sm xs:w-32 w-28 sm:w-[150px] xl:text-lg xl:w-44" onClick={() => setAdvancedAlgo(false)}>Main menu</button>
+                        <button className=" navColorDrop xm:w-36 sm:text-base text-center rounded-xl p-2 text-white my-10 xs:text-sm xs:w-32 w-28 sm:w-[150px] xl:text-lg xl:w-44" onClick={() => setContent(false)}>Back</button>
                     </div>
                     </>
                     )}

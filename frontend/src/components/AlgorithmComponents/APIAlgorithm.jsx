@@ -20,7 +20,7 @@ function APIAlgorithm ({apiEndpoint, isSearch}) {
             const response = await axios.post(`http://localhost:8080/algorithms/${apiEndpoint}`, body);
             
 
-            setTimeTaken(`${response.data.timeTaken} MS`);
+            setTimeTaken(`${response.data.timeTaken} ms`);
             setMemoryUsage(`${response.data.memoryUsage} MB`);
             setIndexOfInput(`Your number was at index: ${response.data.valueFromSearch}`)
         }catch(error){
@@ -35,11 +35,11 @@ function APIAlgorithm ({apiEndpoint, isSearch}) {
 
     return (
         <>
-            <h1 className="text-center text-3xl text-white mt-20 mb-10">See how it performs</h1>
+            <h1 className="text-white xs:text-xl sm:text-2xl md:text-3xl text-center mt-10 mb-2 xl:text-3xl">See how it performs</h1>
             <div>
                 <div className="mb-6">
                     <p className="text-center text-white">Enter a random size of an array (1000 - 1 000 000): </p>
-                    {/* Here put the text (explanation) and add another button below for user to test searching binary 
+                    {/* aloo here put the text (explanation) and add another button below for user to test searching binary 
                             and interpolation search with unifromly ditributed array and the random sorted array */}
                     {isSearch && (
                         <p className="text-center text-slate-400 text-xs px-3">(Whatever number you want to search, will be at the random position inside the array)</p>
@@ -60,7 +60,7 @@ function APIAlgorithm ({apiEndpoint, isSearch}) {
                     {isSearch && (
                         <input value={target} onChange={(e) => setTarget(e.target.value)} 
                         type="number" placeholder="Number to search" min={1} max={1000000}
-                        className="text-xs rounded-xl w-28 text-center border-2 border-black"></input>
+                        className="text-xs rounded-xl w-28 text-center border-2 border-black xl:w-32"></input>
                     )}
 
                     <button type="submit" className="text-white navColorDrop p-2 rounded-xl w-24">Test</button>
@@ -77,16 +77,16 @@ function APIAlgorithm ({apiEndpoint, isSearch}) {
                     </div>
                 )}
             </div>
-        <>
+        <div className="flex flex-col xl:flex-row place-content-center xl:gap-10">
             <div className="flex flex-col mt-20 mb-16 text-white place-items-center place-content-center ">
                 <p className="absolute text-white text-2xl">{timeTaken || "N/A"}</p>
                     <img src={timeUsage} alt="Time Usage" className="w-60"/>
                 </div>
-            <div className="flex flex-col mt-10 mb-16 text-white place-items-center place-content-center">
-                <p className="absolute text-white text-2xl">{memoryUsage || "N/A"}</p>
+            <div className="flex flex-col mb-16 text-white place-items-center place-content-center xl:mt-20">
+                <p className="absolute text-white text-lg">{memoryUsage || "N/A"}</p>
                 <img src={spaceUsage} alt="Memory Usage" className="w-60"/>
             </div>
-        </>
+        </div>
                     
             
         </>

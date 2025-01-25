@@ -48,7 +48,7 @@ This is an array with a fixed size of 5 elements
                     We can transform data using functions like map() or filter()
                     And we can use them to represent multi-dimensional arrays (e.g. matrices)`,
             sketch: [
-                {image: arrayD,
+                {image: arrayD,  heading: "Representation of array",
                 text: `This is an array. Here you can see that the values in array are stored in contiguous order.
                         Every element has its own index position, and when we use them, we can access elements really fast.`}
                 ],
@@ -112,9 +112,9 @@ line-height: 1.25;">Stack&ltString&gt stack = new Stack<>();</b>
                             But "Deck" is the interface, and even though it can be used to create Stack and Queue, 
                             one of the most commonly used implementation of Deque is ArrayDeque. That is a concrete class that implements Deque.
                             It is faster than Stack when used as a Stack and faster than LinkedList when used as a Queue. 
-                            When a deque is used as a stack, elements are pushed and popped from the beginning of the deque, rather from the end in legacy class "Stack".
+                            When a deque is used as a stack, elements are pushed and popped from the beginning of the deque, rather from the head in legacy class "Stack".
                             Methods from stack can be used when using deque, but also there are a lot more new ones, and some of them will be listed in methods section.
-                            Generally always use ArrayDeque for both stacks and queue. sssssssssssssssssssswitch text
+                            Generally always use ArrayDeque for both stacks and queue. 
                             `,
 
             useCase: `Use cases for stacks can be backtracking for example in backtracking algorithms or file directories, 
@@ -208,8 +208,9 @@ line-height: 1.25;">PriorityQueue&ltInteger&gt priorityQueue = new PriorityQueue
                         priority queues manage processes in the CPU scheduler, ensuring critical processes are executed promptly.
                       In network routing, priority queues help determine the most efficient paths for data packets.
                       Moreover, they find applications in data compression techniques like Huffman encoding, where elements with the least frequency are combined first.`,
+            methods: [],
             sketch: [],
-            methods: []
+            
         },
         {
             id: 6,
@@ -253,7 +254,7 @@ methods: [
                 {image: doublyLinked,
                 text: `Here is the representation of doubly linked list. Every node here has address for previous node,
                         some data and address for the next node. Of course these types of linked list use more memory, 
-                        since we need additional pointer, but for example in these nodes we can operate from the tail as well.`}
+                        since we need additional pointer, but for example in these types of linked list we can operate from the tail as well.`}
         ]
         },
         {
@@ -291,7 +292,7 @@ methods: [
                     text: `Here is the representation of Hash Map. This shows how key, value pairs(buckets) are inserted into hash map and the default proccess behind it.
                             With this approach if the collision happens, hashmap will store 2 buckets at the same place and create a linked list of buckets. Of course there are
                             other approaches of dealing with collisions, but this is the easiest.`,
-                    heading: "Representation of graph"}
+                    heading: "Representation of Hash Map"}
             ]
         },
         {
@@ -396,24 +397,24 @@ class TreeNode {
         <>
             {!content &&(
                 <>
-                <div className="text-white mb-10 w-96 mx-auto">
-                            <p>Hello again! Here is the more advanced stuff. Choose between given algorithms to see info about them, 
+                <div className="text-white text-center mx-auto sm:text-base lg:text-lg xs:w-[340px] sm:w-[550px] md:w-[600px] lg:w-[620px] xl:w-[650px] mb-12">
+                            <p>Hello again! Here is the more advanced stuff. Choose between given Data Structures to see info about them, 
                                 and to see how a specific algorithm works.</p>
-                        </div>
+                </div>
     
-                <div className="flex flex-wrap gap-2 mx-auto place-content-center px-1 w-96">
-                    {dataStructuresData.map((algo) =>(
+                <div className="flex flex-wrap gap-2 mx-auto place-content-center xs:w-[350px] sm:w-[450px] md:w-[600px] ">
+                    {dataStructuresData.map((ds) =>(
                         <SpecificDsButton 
-                            key={algo.id}
-                            id={algo.id}
-                            name={algo.name}
-                            onClick={() => [handleButton(algo.id), toggleContent()] }
+                            key={ds.id}
+                            id={ds.id}
+                            name={ds.name}
+                            onClick={() => [handleButton(ds.id), toggleContent()] }
                         />
                     ))}
                 </div>
     
                 <div className="flex justify-center">
-                        <button className=" navColorDrop w-40 text-center rounded-xl p-2 text-white mx-auto my-10" onClick={() => setAdvancedDs(false)}>Go back</button>
+                        <button className=" navColorDrop w-40 text-center rounded-xl p-2 text-white mx-auto my-10 xs:w-32 xs:text-sm sm:w-[150px] sm:text-base xl:w-[180px]" onClick={() => setAdvancedDs(false)}>Go back</button>
                 </div>
                 </>
             )}
@@ -434,9 +435,9 @@ class TreeNode {
                         sketch={selectedDsData.sketch}
                         methods={selectedDsData.methods}
                     />
-                    <div className="flex justify-center ">
-                    <button className=" navColorDrop w-40 text-center rounded-xl p-2 text-white mx-auto my-10" onClick={() => setAdvancedDs(false)}>Main menu</button>
-                        <button className=" navColorDrop w-40 text-center rounded-xl p-2 text-white mx-auto my-10" onClick={() => setContent(false)}>Back</button>
+                    <div className="flex place-content-center lg:gap-32 xs:gap-6 sm:gap-16">
+                    <button className=" navColorDrop xm:w-36 sm:text-base text-center rounded-xl p-2 text-white my-10 xs:text-sm xs:w-32 w-28 sm:w-[150px] xl:text-lg xl:w-44 " onClick={() => setAdvancedDs(false)}>Main menu</button>
+                        <button className=" navColorDrop xm:w-36 sm:text-base text-center rounded-xl p-2 text-white my-10 xs:text-sm xs:w-32 w-28 sm:w-[150px] xl:text-lg xl:w-44 " onClick={() => setContent(false)}>Back</button>
                     </div>
                     </>
                     )}

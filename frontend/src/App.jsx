@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+
 import Header from './Header.jsx'
 import ContentAlgo from './ContentAlgo.jsx';
 import ContentDs from './ContentDs.jsx';
@@ -10,7 +10,6 @@ import { useView } from './ViewContext.jsx';
 function App () {
 
     const {view} = useView();
-    console.log("Current view:", view);
     
     return (
         <>

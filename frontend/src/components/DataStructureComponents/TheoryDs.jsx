@@ -26,20 +26,20 @@ const evaluating = `When choosing a data structure, several factors need to be c
     return(
         <>
 
-            <div className="place-content-center w-10/12 mx-auto text-sm">
-                <h2 className="text-white text-2xl italic mb-4">Definition</h2>
+            <div className="place-content-center w-10/12 mx-auto text-sm lg:px-10 md:text-base xl:px-28 xxl:w-[1000px]">
+                <h2 className="text-white text-2xl italic mb-4 xl:text-3xl">Definition</h2>
                 <p className="text-white text-justify">{definition}</p>
                 
-                <h2 className="text-white text-2xl italic my-4">Characteristics</h2>
+                <h2 className="text-white text-2xl italic my-4 xl:text-3xl">Characteristics</h2>
                 <p className="text-white text-justify">{characteristics}</p>
                 <div className="text-white ml-5">
                    
                 </div>
 
-                <h2 className="text-white text-2xl italic my-4">Use cases</h2>
+                <h2 className="text-white text-2xl italic my-4 xl:text-3xl">Use cases</h2>
                 <p className="text-white tracking-wide text-justify">{useCases}</p>
 
-                <h2 className="text-white text-2xl italic my-4">Evaluating data structures</h2>
+                <h2 className="text-white text-2xl italic my-4 xl:text-3xl">Evaluating data structures</h2>
                 <p className="text-white  text-justify">{evaluating}</p>
                 <ol className="text-white">
                     

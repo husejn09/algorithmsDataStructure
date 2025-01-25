@@ -5,8 +5,6 @@ const ViewContext = createContext();
 export function ViewProvider({ children }) {
     const [view, setView] = useState("main"); 
 
-    console.log(`ViewContext: ${view}`);
-
     return (
         <ViewContext.Provider value={{ view, setView }}>
             {children}

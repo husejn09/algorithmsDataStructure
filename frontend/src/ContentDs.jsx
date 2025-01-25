@@ -11,16 +11,16 @@ function ContentDs(){
    
     return(
         <>
-        <div className="flex mt-12 place-content-center w-96 mx-auto">
-            <img alt="algoLogo" src={dSImage} className="w-40 h-40 ml-3"></img>
-            <div className="flex flex-col p-4">
-                <h1 className="text-white text-2xl">{title}</h1>
-                <p className="text-white text-sm mt-3">{dsAbout}</p>
-                
+        <div className="flex mt-12 place-content-center mx-auto place-items-center w-fit">
+            <img alt="algoLogo" src={dSImage} className="w-40 h-40 ml-3 sm:ml-8 sm:w-48 sm:h-48 lg:w-60 lg:h-60 lg:ml-20 xxl:w-[220px] xxl:h-[250px]"></img>
+            <div className="flex flex-col p-4 xxl:w-[650px]">
+                <h1 className="text-white text-2xl sm:text-3xl lg:text-4xl ">{title}</h1>
+                <p className="text-white text-sm mt-3 lg:text-lg lg:pt-2">{dsAbout}</p>
+                <LearnButton targetView="dataStructure"/>
             </div>
         </div>
-        <LearnButton targetView="dataStructure"/>
-        <img alt="Notation logo" src={notationLogo} className="w-80 mx-auto -mb-10 opacity-50"></img>
+        
+        <img alt="Notation logo" src={notationLogo} className="w-80 mx-auto -mb-10 opacity-50 sm:w-96 xxl:w-[400px] xxl:h-[250px]"></img>
         </>
     );
 }
