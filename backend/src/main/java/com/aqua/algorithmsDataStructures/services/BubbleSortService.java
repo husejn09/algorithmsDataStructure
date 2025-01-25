@@ -27,11 +27,11 @@ public class BubbleSortService {
         long endTime = System.nanoTime();
 
         //calculating time and memory
-        double timeTaken = (double)(endTime - startTime)  / 1000000.0; // divide with 1 000 000 for ms
+        int timeTaken = (int)(endTime - startTime)  / 1000000; // divide with 1 000 000 for ms
         double memoryTaken = (double) (memoryAfter - memoryBefore) / (1024.0 * 1024.0); // divide with 1024*1024 for MB
 
         AlgorithmMetricsResponse response = new AlgorithmMetricsResponse();
-        response.setTimeTaken(timeTaken / 1000); // divide by 1000 to get Seconds
+        response.setTimeTaken(timeTaken); // divide by 1000 to get Seconds
         response.setMemoryUsage(memoryTaken);
         return response;
     }

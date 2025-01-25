@@ -2,7 +2,7 @@ package com.aqua.algorithmsDataStructures.models;
 
 public class AlgorithmMetricsResponse  {
     private int valueFromSearch;
-    private double timeTaken;
+    private int timeTaken;
     private double memoryUsage;
     private int[] arrayFromSort;
 
@@ -26,7 +26,7 @@ public class AlgorithmMetricsResponse  {
         return timeTaken;
     }
 
-    public void setTimeTaken(double timeTaken) {
+    public void setTimeTaken(int timeTaken) {
         this.timeTaken = timeTaken;
     }
 

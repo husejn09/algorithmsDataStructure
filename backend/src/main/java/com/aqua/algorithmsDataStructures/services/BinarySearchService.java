@@ -10,9 +10,7 @@ public class BinarySearchService {
     public BinarySearchService(){
         this.search = new BinarySearch();
     }
-
-
-
+    
     public AlgorithmMetricsResponse binarySearchMetrics(int [] array, int target){
         Runtime runtime = Runtime.getRuntime();
         runtime.gc();
@@ -28,7 +26,7 @@ public class BinarySearchService {
         long endTime = System.nanoTime();
 
         //calculating time and memory
-        double timeTaken = (double)(endTime - startTime)  / 1000000; // divide with 1 000 000 for ms
+        int timeTaken = (int) (endTime - startTime)  / 1000000; // divide with 1 000 000 for ms
         double memoryTaken = (double) (memoryAfter - memoryBefore) / (1024.0 * 1024.0); // divide with 1024*1024 for MB
 
         AlgorithmMetricsResponse response = new AlgorithmMetricsResponse();

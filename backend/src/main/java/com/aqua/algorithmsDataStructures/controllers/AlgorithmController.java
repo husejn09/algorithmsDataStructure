@@ -6,6 +6,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.aqua.algorithmsDataStructures.services.*;
 
+import java.util.Arrays;
 import java.util.Random;
 
 @RestController
@@ -50,8 +51,11 @@ public class AlgorithmController {
         }
         int randomIndex = random.nextInt(size);
         array[randomIndex] = value;
+
+        Arrays.sort(array);
         return array;
     }
+
     // generating random array for sort algorithms, it does not need target
     private int[] generateArraySort(int size){
         int[] array = new int[size];
@@ -87,7 +91,6 @@ public class AlgorithmController {
     @PostMapping("/BinarySearch")
     public AlgorithmMetricsResponse getBinarySearchMetrics(@Validated @RequestBody UserInputsDTO userInputsDTO){
         int[] array = generateArray(userInputsDTO.getSize(), userInputsDTO.getValue());
-        quickSortService.quickSortMetrics(array, 0, array.length-1);
         return binarySearchService.binarySearchMetrics(array, userInputsDTO.getValue());
     }
 
@@ -161,7 +164,6 @@ public class AlgorithmController {
     @PostMapping("/InterpolationSearch")
     public AlgorithmMetricsResponse getInterpolationSearch(@Validated @RequestBody UserInputsDTO userInputsDTO){
         int[] array = generateArray(userInputsDTO.getSize(), userInputsDTO.getValue());
-        quickSortService.quickSortMetrics(array, 0, array.length-1);
         return interpolationSearchService.interpolationSearchMetrics(array, userInputsDTO.getValue());
     }
 
