@@ -1,7 +1,6 @@
-import dsImage from '../../assets/dsLogo.png'
+import dsImage from '../../assets/dSLogo.png'
 import React, {useState} from 'react';
 import TheoryDs from './TheoryDs';
-import DataStructuresDetailed from './DataStructuresDetailed';
 import AdvancedDs from './AdvancedDs';
 import { useView } from '../../ViewContext';
 
