@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import dSImage from './assets/dsLogo.png'
+import dSImage from './assets/dSLogo.png'
 import LearnButton from './LearnButton';
 import notationLogo from './assets/notationLogo.png'
 import { useEffect } from 'react';
