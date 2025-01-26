@@ -3,7 +3,7 @@ import axios from 'axios';
 import timeUsage from '../../assets/timeUsage.png'
 import spaceUsage from '../../assets/memoryUsage.png'
 
-const url = import.meta.env.VITE_REACT_APP_BASE_URL;
+const url = import.meta.env.VITE_REACT_APP_RENDER_URL;
 
 function APIAlgorithm ({apiEndpoint, isSearch}) {
     const [inputValue, setInputValue] = useState("");
