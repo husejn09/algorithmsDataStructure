@@ -3,6 +3,8 @@ import axios from 'axios';
 import timeUsage from '../../assets/timeUsage.png'
 import spaceUsage from '../../assets/memoryUsage.png'
 
+const url = process.env.REACT_APP_BASE_URL;
+
 function APIAlgorithm ({apiEndpoint, isSearch}) {
     const [inputValue, setInputValue] = useState("");
     const [target, setTarget] = useState();
@@ -17,7 +19,7 @@ function APIAlgorithm ({apiEndpoint, isSearch}) {
             const body = { size: inputValue};
             if (isSearch) body.value = target;
 
-            const response = await axios.post(`http://localhost:8080/algorithms/${apiEndpoint}`, body);
+            const response = await axios.post(`${url}/${apiEndpoint}`, body);
             
 
             setTimeTaken(`${response.data.timeTaken} ms`);

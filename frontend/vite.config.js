@@ -11,6 +11,11 @@ export default defineConfig({
       plugins: [tailwindcss],
     },
   },
+  build: {
+    rollupOptions: {
+      external: ['axios'], 
+    },
+  },
   server: {
     proxy: {
       '/api': {
