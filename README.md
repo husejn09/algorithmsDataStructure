@@ -57,7 +57,7 @@ npm run dev
 Make sure to set the following environment variable for the frontend
 * REACT_APP_BASE_URL to point to your backend API (e.g., http://localhost:8080/algorithms/)
 
-### Demo
+## Screenshots
 Here are some screenshots of the app parts
 * Landing part
 <img src="images/landing.png" alt="Landing part" width="600"/>
@@ -74,5 +74,5 @@ Here are some screenshots of the app parts
 * Performance part for sorting Algorithms
 <img src="images/algoPerformancePart.png" alt="Performance part for ALgorithms" width="500"/>
 
-### License
+## License
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
